@@ -1,24 +1,9 @@
 import './App.css'
+import { projectModel } from './models/project'
+import { skillsModel } from './models/skills'
 
-const skills = ['Java', 'JavaScript', 'Python', 'HTML', 'CSS', 'Ubuntu', 'AI Tooling']
-
-const projects = [
-  {
-    name: 'WorkForce Portal',
-    description:
-      'A robust, scalable, and secure centralized platform designed to streamline workforce management and authentication. It serves as a mission-critical gateway that bridges the gap between employee resource access and administrative oversight.',
-  },
-  {
-    name: 'Library Management System',
-    description:
-      'A scalable and modular Library Management System built with Django, designed to handle book cataloging, inventory control, borrowing workflows, reservations, and financial tracking.',
-  },
-  {
-      name: 'Dungeon Escape',
-      description:
-      'A text-based adventure game where players navigate through a mysterious dungeon, fighting monsters and avoiding powerful foes to climb up the dungeon.',
-  },
-]
+const skills = skillsModel.getAll()
+const projectData = projectModel.getAll()
 
 function Header() {
     return (
@@ -82,7 +67,7 @@ function Projects() {
                 Personal Projects
             </h2>
             <div className="flex flex-col gap-5">
-                {projects.map((project) => (
+                {projectData.map((project) => (
                     <article
                         key={project.name}
                         className="group rounded-2xl border border-white/80 bg-white/75 p-6 shadow-lg shadow-slate-300/20 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-200/30 max-[540px]:p-5"
