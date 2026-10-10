@@ -1,7 +1,9 @@
 import './App.css'
+import { profileModel } from './models/profile'
 import { projectModel } from './models/project'
 import { skillsModel } from './models/skills'
 
+const profile = profileModel.getAll()
 const skills = skillsModel.getAll()
 const projectData = projectModel.getAll()
 
@@ -12,10 +14,10 @@ function Header() {
                 My Portfolio
             </p>
             <h1 className="m-0 mb-0.1 font-bold text-[clamp(2rem,5vw,2.2rem)] text-slate-800">
-                Jethro Salindato
+                {profile.name}
             </h1>
             <p className="m-0 text-[1.1em] text-[#718096]">
-                Information Technology Student &amp; Software Developer
+                {profile.title}
             </p>
         </header>
     )
@@ -29,10 +31,7 @@ function About() {
                 About Me
             </h2>
             <p className="m-0 mb-6 text-[1.05rem] text-[#4a5568]">
-                Hello! I&apos;m a Information Technology student passionate about game development and
-                game architecture. My current academic focus centers on mastering the intricacies of game design, programming,
-                and the underlying systems that drive immersive experiences. I am eager to apply my skills in real-world
-                projects and contribute to innovative gaming solutions.
+                {profile.about}
             </p>
         </section>
     )
